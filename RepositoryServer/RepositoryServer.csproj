@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF375525-CDE9-49AE-8A3B-694458EBF0EC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RepositoryServer</RootNamespace>
+    <AssemblyName>RepositoryServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientConnection.cs" />
+    <Compile Include="ClientDataBase.cs" />
+    <Compile Include="ClientManager.cs" />
+    <Compile Include="ClientRequest.cs" />
+    <Compile Include="ClientResponse.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="RepositoryManager.cs" />
+    <Compile Include="RepositoryManagerMessage.cs" />
+    <Compile Include="RequestDispatcher.cs" />
+    <Compile Include="XmlConfigurationLoader.cs" />
+    <Compile Include="XmlRepositoryConfiguration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MessagePackaging\MessagePackaging.csproj">
+      <Project>{80f97d9d-d397-4d64-ade1-b60e39908e3f}</Project>
+      <Name>MessagePackaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlMessaging\XmlMessaging.csproj">
+      <Project>{4a2f02f1-f7f8-4663-ab05-ce9e432a296d}</Project>
+      <Name>XmlMessaging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
